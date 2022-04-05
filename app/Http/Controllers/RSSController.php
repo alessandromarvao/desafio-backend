@@ -14,7 +14,7 @@ class RSSController extends Controller
     private $itens = [];
 
     /**
-     * Variável que verifica se o vetor com os 
+     * Variável que verifica se o array contém os valores da RSS
      */
     private $isEmpty = true;
 
@@ -64,6 +64,7 @@ class RSSController extends Controller
 
         if (!$this->isEmpty) {
             foreach ($this->itens->channel->item as $itens) {
+                // print_r((string) $itens->category . "<br/>");        
                 $arrayBreakLine = ["\n ", " \n"];
                 if (strcmp($itens->category, $tag) == 0)
                     array_push($arrayTitle, str_replace($arrayBreakLine, "", $itens->title));
