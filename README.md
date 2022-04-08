@@ -1,50 +1,58 @@
-## Convergence Works
-Somos a Convergence Works, somos a convergência entre os desafios das empresas e as ideias pra vencê-los. Desenvolvemos plataformas para o mundo digital, com foco em comunicação. Somos especialistas na criação de sites e aplicativos para plataformas de comunicação. Integramos sistema de gestão de conteúdo, aplicativo, disparo de email, solução para clube de assinantes, implantação de editoriais em múltiplas plataformas.
+# Convergence Works
+Aplicação de teste da Convergence Works, que recebe uma fonte de dados RSS [https://www.correio24horas.com.br/rss/] e exibe um relatório com a quantidade e os títulos das notícias.
 
-## Descrição da vaga
-Conhecimento e habilidades em: 
-+ Frameworks em PHP (Laravel, Symfony, ...)
-+ Inglês Técnico 
-+ Git
-+ Metodologia ágil
-+ Capacidade de trabalhar em equipe, boa comunicação, comprometimento e organização; 
-+ Vontade de aprender novas tecnologias de mercado. 
+### Metodologia utilizada:
+A aplicação foi desenvolvida com Lumen (versão 7.4) tanto para o processamento do lado servidor (back-end), quando para a exibição dos dados coletados para o cliente (front-end).
 
-## Local
-Vaga 100% remota, empresa de Salvador/BA
+Também utilizei a framework JQuery para realizar as requisições assíncronas (AJAX) com o servidor, de modo a manter todas as informações necessárias apenas em uma única página.
 
-## O desafio
-Para avaliar seu desempenho temos um desafio para você.
+#### Laravel Lumen
+Lumen é um micro-framework derivado do Laravel, que possui as mesmas funções do Laravel, porém com recursos limitados, tornando-a mais leve e rápida. O Lumen é mais utilizado para criação de microsserviços e API's.
 
-Você deverá fazer um fork deste repositório, e desenvolver um relatório sobre a publicação de notícias. A aplicação deverá consumir a seguinte fonte de dados RSS [https://www.correio24horas.com.br/rss/] e entregar em formato JSON a quantidade e uma lista com o titulo (campo title) das notícias encontradas obedecendo dois critérios:
+Para o desenvolvimento desta aplicação, só precisei criar apenas 3 rotas:
 
-### Notícias publicadas hoje
-Exemplo de output
-```json
-{	
-	"quantidade": 4,
-	"noticias":["Trabalho remoto monitorado","As aulas da B3 são 100% on-line e gravadas; confira como participar","Do jornalismo para a música: Luana Assiz lança clipe Espelho de Oxum","Em série do Globoplay, talentos se juntam para compor canção coletiva"]
-}
+1 - [Página principal](https://cw-test-alessandro-marvao.herokuapp.com/), 
+
+2 - [Arquivo JSON com todas as notícias do dia](https://cw-test-alessandro-marvao.herokuapp.com/rss);
+
+3 - [Arquivo JSON com as notícias escolhidas por categoria)](https://cw-test-alessandro-marvao.herokuapp.com/tag/{categoria}).
+
+Dessa forma não é necessário utilizar todos ou a maioria dos recursos nativos do Laravel.
+
+## Instalação:
+Para a instalação em sua máquina local, você deverá possuir instalado PHP versão 7 e [Composer](https://getcomposer.org/).
+
+1. Você pode fazer o download deste repositório ou cloná-lo a partir do GitHub:
+
+```bash
+git clone https://github.com/alessandromarvao/desafio-backend.git
 ```
 
-### Notícias filtradas por categoria
-Exemplo de output para *Noticias que pertençam a **"categoria" "tecnoporto"**.* 
-```json
-{
-	"quantidade":1,
-	"noticias":["Trabalho remoto monitorado"]
-}
+2. Concluído o download/clone, você deverá renomear o arquivo ".env.example" para ".env".
+
+3. Ainda no arquivo ".env", você deverá atribuir um valor para a constante APP_KEY, que recebe uma string (length) de 32 caracteres (que você pode gerar acessando [este site](http://www.unit-conversion.info/texttools/random-string-generator/)). 
+
+```
+APP_KEY=digite-aqui-sua-string
+```
+4. Com o terminal (ou prompt de comando) aberto na pasta raiz do projeto, você deverá baixar as dependências do projeto via composer:
+
+```bash
+composer install
 ```
 
-Você deve descrever no README.md do projeto Git as decisões de implementação que forem relevantes, junto das instruções de como compilar (build) e executar a sua aplicação. Você pode utilizar bibliotecas de código aberto (open source) que acredite serem adequadas, mas por favor tente limitar o uso de ferramentas desnecessárias.
+```bash
+composer install --no-scripts
+```
 
-## Critérios de Avaliação
-+ Organização
-+ Semântica
-+ Decisões Técnicas
-+ Ferramentas Utilizadas
-+ Desejável: Testes unitários
+5. Ainda no prompt de comando aberto na pasta raiz do projeto, execute o comando para executar a aplicação no seu computador:
 
- 
+```bash
+php -S localhost:8000 -t public
+```
 
+6. Agora você pode abrir o navegador e acessar o link (localhost:8000) que já estará acessando a aplicação.
 
+Esta aplicação também está implantada no [Heroku](https://cw-test-alessandro-marvao.herokuapp.com/).
+
+Quaisquer dúvidas ou sugestões, por favor encaminhar para meu endereço de e-mail (alessandromarvao@gmail.com).
