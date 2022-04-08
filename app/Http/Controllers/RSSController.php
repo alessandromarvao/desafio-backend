@@ -29,8 +29,8 @@ class RSSController extends Controller
     {
         try {
             // Carrega o arquivo RSS e converte para xml. A constante LIBXML_NOCDATA é utilizada para montar os dados inclusos nas tags do RSS protegidos com a tag <![CDATA] ...>
-            // $this->itens = simplexml_load_file(env('RSS_URL'),  null, LIBXML_NOCDATA);
-            $this->itens = simplexml_load_file('lixo/arquivo.rss',  null, LIBXML_NOCDATA); // Arquivo que baixei da RSS para teste direto, sem necesidade de testar com internet
+            $this->itens = simplexml_load_file(env('RSS_URL'),  null, LIBXML_NOCDATA);
+            // $this->itens = simplexml_load_file('lixo/arquivo.rss',  null, LIBXML_NOCDATA); // Arquivo que baixei da RSS para teste direto, sem necesidade de testar com internet
 
             // Verifica se a quantidade dos elementos do array recebido é maior que 0. Se sim, muda a variável `isEmpty` para verdadeiro
             if (count($this->itens->channel->item) > 0) {
